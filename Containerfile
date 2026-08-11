@@ -17,10 +17,12 @@ FROM ghcr.io/containerpak/gtk:main
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+COPY --from=build /opt/stage/usr /usr
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates curl gir1.2-adw-1 gir1.2-gtk-4.0 libvulkan1 \
-    python3-cffi python3-gi python3-pil python3-pip unzip && \
+    libglib2.0-bin python3-cffi python3-gi python3-pil python3-pip unzip && \
     curl -fsSL https://files.pythonhosted.org/packages/f7/e5/7b28a123d33fc9c3d55383628fc38322c890a97dfa2c538a7638cd71d57f/vulkan-1.3.275.1-py3-none-any.whl \
       -o /tmp/vulkan-1.3.275.1-py3-none-any.whl && \
     echo 'e1e0ddf57d3a7d19f79ebf1e192b20dbd378172b027cad4f495d961b51409586  /tmp/vulkan-1.3.275.1-py3-none-any.whl' | sha256sum -c - && \
@@ -36,6 +38,5 @@ RUN apt-get update && \
     unzip -q /tmp/models.zip -d /tmp/models && \
     mkdir -p /usr/bin/models && \
     cp /tmp/models/models/*.bin /tmp/models/models/*.param /usr/bin/models/ && \
+    glib-compile-schemas /usr/share/glib-2.0/schemas && \
     cpak-clean-junk
-
-COPY --from=build /opt/stage/usr /usr
