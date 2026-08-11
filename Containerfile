@@ -3,7 +3,8 @@ FROM ghcr.io/containerpak/gtk-sdk:main AS build
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends blueprint-compiler ca-certificates curl gettext python3 && \
+    apt-get install -y --no-install-recommends \
+    blueprint-compiler ca-certificates curl desktop-file-utils gettext libglib2.0-bin python3 && \
     curl -fsSL https://gitlab.gnome.org/World/Upscaler/-/archive/c750d8a0f69865f49af6225e2828d373337633ce/Upscaler-c750d8a0f69865f49af6225e2828d373337633ce.tar.gz \
       -o /tmp/upscaler.tar.gz && \
     echo '4a6179d280ac951b13f3fcaeb1b4d39455780cd66a3ed2e4b5557f74ed95bb9e  /tmp/upscaler.tar.gz' | sha256sum -c - && \
