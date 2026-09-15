@@ -2,7 +2,7 @@ FROM ghcr.io/containerpak/gtk4-sdk:main AS build
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ADD --checksum=sha256:4a6179d280ac951b13f3fcaeb1b4d39455780cd66a3ed2e4b5557f74ed95bb9e https://gitlab.gnome.org/World/Upscaler/-/archive/c750d8a0f69865f49af6225e2828d373337633ce/Upscaler-c750d8a0f69865f49af6225e2828d373337633ce.tar.gz /tmp/upscaler.tar.gz
+ADD --checksum=sha256:7f337ecd60d005161fadf3fe4b0c71fe7ee8f9daa078367d2f11c32b4f2c68bd https://gitlab.gnome.org/World/Upscaler/-/archive/d4a09c155e7fca0db90eaca9b45644af7485a255/Upscaler-d4a09c155e7fca0db90eaca9b45644af7485a255.tar.gz /tmp/upscaler.tar.gz
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
