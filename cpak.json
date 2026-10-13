@@ -4,7 +4,7 @@
   "name": "Upscaler",
   "description": "Upscale and enhance images with Real-ESRGAN and Vulkan.",
   "version": "1.6.5",
-  "image": "ghcr.io/containerpak/upscaler@sha256:98a66fb7bb90994845c57875df851aea26d09bc628e5d75fe0223d822385362f",
+  "image": "ghcr.io/containerpak/upscaler@sha256:f10c96e38589a0c01edff82028bf5d11ba15878849d87bf44b6f3a48ec098049",
   "binaries": [
     "/usr/bin/upscaler"
   ],
